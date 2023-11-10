@@ -90,7 +90,13 @@ namespace TrilhaApiDesafio.Controllers
 
             // TODO: Atualizar as informações da variável tarefaBanco com a tarefa recebida via parâmetro
             // TODO: Atualizar a variável tarefaBanco no EF e salvar as mudanças (save changes)
+            tarefaBanco.Data = tarefa.Data;
+            tarefaBanco.Titulo = tarefa.Titulo;
+            tarefaBanco.Status = tarefa.Status;
+            tarefaBanco.Descricao = tarefa.Descricao;
 
+            _context.Tarefas.Update(tarefaBanco);
+            _context.SaveChanges();
             return Ok();
         }
 
